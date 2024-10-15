@@ -1,0 +1,11 @@
+.ciky{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.ciky-2{
+    background-color: blue;
+    width:50%;
+    justify-content: center;
+    align-items: center;
+}

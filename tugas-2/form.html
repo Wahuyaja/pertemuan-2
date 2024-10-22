@@ -3,31 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>halaman tambah mahasiswa</title>
+    <link rel="stylesheet" href="form.css"/>
+    <title>Tambah Mahasiswa</title>
 </head>
-<link rel="stylesheet" href="form.css"/>
 <body>
-    <div
-    class="ciky">
-    <div
-    class="ciky-2" align="center">
-        <h1>tambah mahasiswa</h1>
-        <form>
-            <label>NAMA</label><br>
-            <input type="text"><br>
-            <label>NIM</label><br>
-            <input type="number"><br>
-            <label>JENIS KELAMIN</label><br>
-            <select selected name="select gender">
-                <option>select gender</option>
-                <option>LAKI-LAKI</option>
-                <option>PEREMPUAN</option>
-            </select>
-            <br><button class="w">
-                sudmit
-            </button>
-        </form>
-    </div>
+    <div class="ciky">
+        <div class="ciky-2" align="center">
+            <!-- Display real-time clock -->
+            <div id="clock"></div>
+
+            <script>
+            function updateTime() {
+                let clock = document.getElementById("clock");
+                let now = new Date();
+                clock.innerHTML = now.toLocaleTimeString();
+            }
+            setInterval(updateTime, 1000); // Update every second
+            updateTime(); // Initial call to display time right away
+            </script>
+
+            <h1>Tambah Mahasiswa</h1>
+
+            <!-- Form container to hold multiple forms -->
+            <div id="formContainer">
+                <form class="studentForm">
+                    <label>NAMA</label><br>
+                    <input type="text"><br>
+                    <label>NIM</label><br>
+                    <input type="number"><br>
+                    <label>JENIS KELAMIN</label><br>
+                    <select name="gender">
+                        <option selected>Pilih Gender</option>
+                        <option>LAKI-LAKI</option>
+                        <option>PEREMPUAN</option>
+                    </select><br><br>
+                </form>
+            </div>
+
+            <!-- Button to add new form -->
+            <button type="button" onclick="addNewForm()">Tambah Form</button><br><br>
+
+            <!-- Button to submit form -->
+            <button type="button" onclick="submitForm()">Submit</button>
+
+            <!-- Script for form cloning -->
+            <script>
+            function addNewForm() {
+                let formContainer = document.getElementById("formContainer");
+                let existingForm = document.querySelector(".studentForm");
+                let newForm = existingForm.cloneNode(true); // Clone the existing form
+                formContainer.appendChild(newForm); // Add the new form below the original one
+            }
+            </script>
+            
+            <!-- Script for form submission -->
+            <script>
+            function submitForm() {
+                alert("Selamat, data telah berhasil disimpan");
+                window.location.reload(); // Refresh the page
+            }
+            </script>
+
+        </div>
     </div>
 </body>
 </html>
